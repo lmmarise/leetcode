@@ -15,12 +15,12 @@ public class DP {
         if (arr.length == 1) return arr[0];
         if (arr.length == 2) return Math.max(arr[0], arr[1]);
 
-        int[] dest = new int[arr.length];
-        dest[0] = arr[0];
-        dest[1] = Math.max(arr[0], arr[1]);
+        int[] temp = new int[arr.length];
+        temp[0] = arr[0];
+        temp[1] = Math.max(arr[0], arr[1]);
         for (int i = 2; i < arr.length; i++) {
-            dest[i] = Math.max(dest[i - 2] + arr[i], dest[i - 1]);
+            temp[i] = Math.max(temp[i - 2] + arr[i], temp[i - 1]);
         }
-        return dest[dest.length - 1];
+        return temp[temp.length - 1];
     }
 }
